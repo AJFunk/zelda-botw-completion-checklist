@@ -1,47 +1,103 @@
+// TODO: add the rest of the shrines from http://www.ign.com/wikis/the-legend-of-zelda-breath-of-the-wild/Shrines
+
 const data = {
   shrines: [
     {
-      "image": "https:\/\/hydra-media.cursecdn.com\/zelda.gamepedia.com\/thumb\/6\/64\/BotW_Oman_Au_Shrine_Exterior.png\/1600px-BotW_Oman_Au_Shrine_Exterior.png?version=cf61c9475baf314143d1c3dea8bae9da",
-      "name": "Oman Au",
-      "region": "Great Plateau",
-      "url": "http:\/\/www.polygon.com\/breath-of-the-wild-guide-walkthrough\/2017\/3\/6\/14828812\/oman-au-shrine-magnesis-trial"
+      region: "Akkala",
+      name: "Dah Hesho",
+      trial: "A Minor Test of Strength	Giant",
+      treasure: ["Ancient Core"]
     },
     {
-      "image": "https:\/\/hydra-media.cursecdn.com\/zelda.gamepedia.com\/thumb\/9\/9b\/BotW_Ja_Baij_Shrine.png\/600px-BotW_Ja_Baij_Shrine.png?version=66b13d754bb472baa5add40d03b832a0",
-      "name": "Ja Baij shrine",
-      "region": "Great Plateau",
-      "url": "http:\/\/www.polygon.com\/breath-of-the-wild-guide-walkthrough\/2017\/3\/6\/14829050\/ja-baij-shrine-bomb-trial"
+      region: "Akkala",
+      name: "Katosa Aug",
+      trial: "Katosa Aug Apparatus	Great",
+      treasure: ["Frostblade"]
     },
     {
-      "image": "https:\/\/hydra-media.cursecdn.com\/zelda.gamepedia.com\/thumb\/2\/26\/BotW_Owa_Daim_Shrine.png\/600px-BotW_Owa_Daim_Shrine.png?version=839b0307f283f74700a112dc7f8dedfe",
-      "name": "Owa Daim",
-      "region": "Great Plateau",
-      "url": "http:\/\/www.polygon.com\/breath-of-the-wild-guide-walkthrough\/2017\/3\/6\/14829380\/owa-dam-shrine-stasis-trial"
+      region: "Akkala",
+      name: "Ke'nai Shakah",
+      trial: "A Modest Test of Strength",
+      treasure: ["Sapphire"]
     },
     {
-      "image": "https:\/\/hydra-media.cursecdn.com\/zelda.gamepedia.com\/thumb\/7\/75\/BotW_Bosh_Kala_Shrine_Exterior.png\/300px-BotW_Bosh_Kala_Shrine_Exterior.png?version=92e737f8d21bcbc702b24fc67d26e172",
-      "name": "Bosh Kala",
-      "region": "Dueling Peaks",
-      "url": "http:\/\/www.polygon.com\/zelda-breath-of-the-wild-guide-walkthrough\/2017\/3\/9\/14862500\/bosh-kala-shrine-puzzle-solutions"
+      region: "Akkala",
+      name: "Ritaag Zumo",
+      trial: "Ritaag Zumo's Blessing / Into the Vortex	Giant",
+      treasure: ["Ancient Core"]
     },
     {
-      "image": "https:\/\/www.zeldadungeon.net\/Zelda16\/Shrines\/Taloh-Naeg\/Taloh-Naeg-Shrine.jpg",
-      "name": "Ta'Loh Naeg",
-      "region": "Dueling Peaks",
-      "url": "http:\/\/www.polygon.com\/zelda-breath-of-the-wild-guide-walkthrough\/2017\/3\/6\/14836070\/taloh-naeg-shrine"
+      region: "Akkala",
+      name: "Tu Ka'loh",
+      trial: "Lomei Labyrinth Island / Trial of the Labyrinth",
+      treasure: ["Ancient Core"]
     },
     {
-      "image": "https:\/\/www.zeldadungeon.net\/Zelda16\/Shrines\/Ree-Dahee\/Ree-Dahee-Shrine.jpg",
-      "name": "Ree Dahee",
-      "region": "Dueling Peaks",
-      "url": "http:\/\/www.polygon.com\/zelda-breath-of-the-wild-guide-walkthrough\/2017\/3\/8\/14861338\/ree-dahee-shrine-puzzle-solutions-pressure-plate-ball-climbers-bandanna"
+      region: "Akkala",
+      name: "Tutsuwa Nima",
+      trial: "A Major Test of Strength / The Spring of Power",
+      treasure: ["Flamespear"]
     },
     {
-      "image": "https:\/\/www.zeldadungeon.net\/Zelda16\/Shrines\/Hila-Rao\/Hila-Rao-Shrine.jpg",
-      "name": "Hila Rao",
-      "region": "Dueling Peaks",
-      "url": "http:\/\/www.polygon.com\/zelda-breath-of-the-wild-guide-walkthrough\/2017\/3\/9\/14863876\/hila-rao-shrine-walkthrough-and-puzzle"
-    }
+      region: "Akkala",
+      name: "Ze Kasho",
+      trial: "Ze Kasho Apparatus	Silverscale",
+      treasure: ["Spear"]
+    },
+    {
+      region: "Akkala",
+      name: "Zuna Kai",
+      trial: "Zuna Kai's Blessing / The Skull's Eye",
+      treasure: ["Flame Blade"]
+    },
+    {
+      region: "Central Hyrule",
+      name: "Dah Kaso",
+      trial: "A Minor Test of Strength",
+      treasure: ["Ancient Core"]
+    },
+    {
+      region: "Central Hyrule",
+      name: "Kaam Ya'tak",
+      trial: "Trial of Power",
+      treasure: ["Edge of Duality", "Silver Rupee", "Diamond"]
+    },
+    {
+      region: "Central Hyrule",
+      name: "Katah Chuki",
+      trial: "A Minor Test of Strength",
+      treasure: ["Royal Halberd"]
+    },
+    {
+      region: "Central Hyrule",
+      name: "Namika Ozz",
+      trial: "A Modest Test of Strength",
+      treasure: ["Frostspear"]
+    },
+    {
+      region: "Central Hyrule",
+      name: "Noya Neha",
+      trial: "A Minor Test of Strength",
+      treasure: ["Royal Shield"]
+    },
+    {
+      region: "Central Hyrule",
+      name: "Rota Ooh",
+      trial: "Passing of the Gates",
+      treasure: ["Feathered Edge"]
+    },
+    {
+      region: "Central Hyrule",
+      name: "Saas Ko'sah",
+      trial: "A Major Test of Strength",
+      treasure: ["Flameblade"]
+    },
+    {
+      region: "Central Hyrule",
+      name: "Wahgo Katta",
+      trial: "Metal Connections",
+      treasure: ["Amber"]
+    },
   ]
 }
 
