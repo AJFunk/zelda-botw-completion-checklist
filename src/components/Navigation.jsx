@@ -13,6 +13,7 @@ const Navigation = ({ changeComp }) => (
     </Navbar.Header>
     <Nav>
       <NavItem eventKey={1}  onClick={() => changeComp('shrines')}>Shrines</NavItem>
+      <NavItem eventKey={2}  onClick={() => changeComp('towers')}>Towers</NavItem>
     </Nav>
   </Navbar>
 );
