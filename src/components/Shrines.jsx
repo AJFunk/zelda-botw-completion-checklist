@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 import Popover from 'react-bootstrap/lib/Popover';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
@@ -50,6 +51,8 @@ class Shrines extends React.Component {
     const shrines = _.groupBy(data.shrines, 'region');
     return (
       <div>
+        <h3>Shrine Progress</h3>
+        <ProgressBar bsStyle="success" now={progress.percentages.shrines} label={`${progress.percentages.shrines}%`} />
         {Object.keys(shrines).map((region, idx) => {
           return (
             <div key={idx}>

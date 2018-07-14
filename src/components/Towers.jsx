@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 import Popover from 'react-bootstrap/lib/Popover';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
@@ -50,6 +51,8 @@ class Towers extends React.Component {
     const regions = data.regions;
     return (
       <div>
+        <h2>Tower Progress</h2>
+        <ProgressBar bsStyle="success" now={progress.percentages.towers}  label={`${progress.percentages.towers}%`} />
         <RenderRegion regions={regions} progress={progress.towers} updater={updater}/>
       </div>
     )

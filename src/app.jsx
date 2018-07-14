@@ -22,6 +22,10 @@ class App extends React.Component {
     progress: {
       shrines: {},
       towers: {},
+      percentages: {
+        shrines: 0,
+        towers: 0
+      }
     },
     comp: 'shrines'
   }
@@ -79,6 +83,25 @@ class App extends React.Component {
           }
         }
       }
+    }, () => {
+      const shrines = this.state.progress.shrines;
+      console.log(shrines);
+      let completed = 0;
+      for (var shrine in shrines) {
+        if (shrines.hasOwnProperty(shrine)) {
+          if (shrines[shrine].completed) completed++;
+        }
+      }
+      console.log(completed);
+      this.setState({
+        progress: {
+          ...this.state.progress,
+          percentages: {
+            ...progress.percentages,
+            shrines: parseFloat(completed/data.shrines.length).toFixed(2) * 100
+          }
+        }
+      });
     });
   }
 
@@ -95,6 +118,23 @@ class App extends React.Component {
           }
         }
       }
+    }, () => {
+      const towers = this.state.progress.towers;
+      let completed = 0;
+      for (var tower in towers) {
+        if (towers.hasOwnProperty(tower)) {
+          if (towers[tower].completed) completed++;
+        }
+      }
+      this.setState({
+        progress: {
+          ...this.state.progress,
+          percentages: {
+            ...progress.percentages,
+            towers: parseFloat(completed/data.regions.length).toFixed(2) * 100
+          }
+        }
+      });
     });
   }
 
