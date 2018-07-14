@@ -14,6 +14,7 @@ const Navigation = ({ changeComp }) => (
     <Nav>
       <NavItem eventKey={1}  onClick={() => changeComp('shrines')}>Shrines</NavItem>
       <NavItem eventKey={2}  onClick={() => changeComp('towers')}>Towers</NavItem>
+      <NavItem eventKey={2}  onClick={() => changeComp('koroks')}>Koroks</NavItem>
     </Nav>
   </Navbar>
 );

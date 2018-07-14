@@ -3,63 +3,78 @@
 const regions = [
   {
     name: "Akkala",
-    image: "akkala.jpg"
+    image: "akkala.jpg",
+    korokImage: ""
   },
   {
     name: "Central",
-    image: "central.jpg"
+    image: "central.jpg",
+    korokImage: ""
   },
   {
     name: "Dueling Peaks",
-    image: "dueling-peaks.jpg"
+    image: "dueling-peaks.jpg",
+    korokImage: ""
   },
   {
     name: "Eldin",
-    image: "eldin.jpg"
+    image: "eldin.jpg",
+    korokImage: ""
   },
   {
     name: "Faron",
-    image: "faron.jpg"
+    image: "faron.jpg",
+    korokImage: ""
   },
   {
     name: "Gerudo",
-    image: "gerudo.jpg"
+    image: "gerudo.jpg",
+    korokImage: ""
   },
   {
     name: "Great Plateau",
-    image: "great-plateau.jpg"
+    image: "great-plateau.jpg",
+    korokImage: "http://cdn.mos.cms.futurecdn.net/NMWUxtpUasq9F8UX8d5ar.jpg"
   },
   {
     name: "Hateno",
-    image: "hateno.jpg"
+    image: "hateno.jpg",
+    korokImage: ""
   },
   {
     name: "Hebra",
-    image: "hebra.jpg"
+    image: "hebra.jpg",
+    korokImage: ""
   },
   {
     name: "Lake",
-    image: "lake.jpg"
+    image: "lake.jpg",
+    korokImage: ""
   },
   {
     name: "Lanayru",
-    image: "lanayru.jpg"
+    image: "lanayru.jpg",
+    korokImage: ""
   },
   {
     name: "Ridgeland",
-    image: "ridgeland.jpg"
+    image: "ridgeland.jpg",
+    korokImage: ""
   },
   {
     name: "Tabantha",
-    image: "tabantha.jpg"
+    image: "tabantha.jpg",
+    korokImage: ""
   },
   {
     name: "Wasteland",
-    image: "wasteland.jpg"
+    image: "wasteland.jpg",
+    korokImage: ""
   },
   {
     name: "Woodland",
-    image: "woodland.jpg"
+    image: "woodland.jpg",
+    korokImage: ""
   },
 ];
 
@@ -67,14 +82,14 @@ const shrines = [
   {
     region: "Akkala",
     name: "Dah Hesho",
-    trial: "A Minor Test of Strength	Giant",
-    treasure: ["Ancient Core"]
+    trial: "A Minor Test of Strength",
+    treasure: ["Giant Ancient Core"],
   },
   {
     region: "Akkala",
     name: "Katosa Aug",
-    trial: "Katosa Aug Apparatus	Great",
-    treasure: ["Frostblade"]
+    trial: "Katosa Aug Apparatus",
+    treasure: ["Great Frostblade"]
   },
   {
     region: "Akkala",
@@ -85,32 +100,36 @@ const shrines = [
   {
     region: "Akkala",
     name: "Ritaag Zumo",
-    trial: "Ritaag Zumo's Blessing / Into the Vortex	Giant",
-    treasure: ["Ancient Core"]
+    trial: "Ritaag Zumo's Blessing",
+    treasure: ["Giant Ancient Core"],
+    quest: "Into the Vortex"
   },
   {
     region: "Akkala",
     name: "Tu Ka'loh",
-    trial: "Lomei Labyrinth Island / Trial of the Labyrinth",
-    treasure: ["Ancient Core"]
+    trial: "Lomei Labyrinth Island",
+    treasure: ["Ancient Core"],
+    quest: "Trial of the Labyrinth"
   },
   {
     region: "Akkala",
     name: "Tutsuwa Nima",
-    trial: "A Major Test of Strength / The Spring of Power",
-    treasure: ["Flamespear"]
+    trial: "A Major Test of Strength",
+    treasure: ["Flamespear"],
+    quest: "The Spring of Power"
   },
   {
     region: "Akkala",
     name: "Ze Kasho",
-    trial: "Ze Kasho Apparatus	Silverscale",
-    treasure: ["Spear"]
+    trial: "Ze Kasho Apparatus",
+    treasure: ["Silverscale Spear"]
   },
   {
     region: "Akkala",
     name: "Zuna Kai",
-    trial: "Zuna Kai's Blessing / The Skull's Eye",
-    treasure: ["Flame Blade"]
+    trial: "Zuna Kai's Blessing",
+    treasure: ["Flame Blade"],
+    quest: "The Skull's Eye",
   },
   {
     region: "Central Hyrule",
@@ -162,10 +181,99 @@ const shrines = [
   },
 ];
 
+const koroks = [
+  {
+    region: "Great Plateau",
+    ord: 1,
+    type: "Cube formation"
+  },
+  {
+    region: "Great Plateau",
+    ord: 2,
+    type: "Hiding Korok"
+  },
+  {
+    region: "Great Plateau",
+    ord: 3,
+    type: "Flowers"
+  },
+  {
+    region: "Great Plateau",
+    ord: 4,
+    type: "Hiding Korok"
+  },
+  {
+    region: "Great Plateau",
+    ord: 5,
+    type: "Hiding Korok"
+  },
+  {
+    region: "Great Plateau",
+    ord: 6,
+    type: "Boulder puzzle"
+  },
+  {
+    region: "Great Plateau",
+    ord: 7,
+    type: "Petals (Inside Shrine of Resurrection)"
+  },
+  {
+    region: "Great Plateau",
+    ord: 8,
+    type: "Rings"
+  },
+  {
+    region: "Great Plateau",
+    ord: 9,
+    type: "Petals"
+  },
+  {
+    region: "Great Plateau",
+    ord: 1,
+    type: "Hiding Korok"
+  },
+  {
+    region: "Great Plateau",
+    ord: 1,
+    type: "Cube formation"
+  },
+  {
+    region: "Great Plateau",
+    ord: 1,
+    type: "Rock formation"
+  },
+  {
+    region: "Great Plateau",
+    ord: 1,
+    type: "Hiding Korok"
+  },
+  {
+    region: "Great Plateau",
+    ord: 1,
+    type: "Hiding Korok"
+  },
+  {
+    region: "Great Plateau",
+    ord: 1,
+    type: "Petals"
+  },
+  {
+    region: "Great Plateau",
+    ord: 1,
+    type: "Petals"
+  },
+  {
+    region: "Great Plateau",
+    ord: 1,
+    type: "Hiding Korok"
+  },
+];
+
 const data = {
   shrines,
   regions,
   towers: regions,
+  koroks,
 }
 
 export default data;

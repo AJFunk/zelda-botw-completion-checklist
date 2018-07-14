@@ -3,6 +3,7 @@ import data from './data';
 import Navigation from './components/Navigation';
 import Shrines from './components/Shrines';
 import Towers from './components/Towers';
+import Koroks from './components/Koroks';
 import 'normalize.css';
 
 import "styles/base/_main.sass"  // Global styles
@@ -15,6 +16,7 @@ class App extends React.Component {
     this.handleComponentChange = this.handleComponentChange.bind(this);
     this.shrinesUpdater = this.shrinesUpdater.bind(this);
     this.towersUpdater = this.towersUpdater.bind(this);
+    this.koroksUpdater = this.koroksUpdater.bind(this);
     // this.updateStorage = this.updateStorage.bind(this);
   }
 
@@ -22,9 +24,16 @@ class App extends React.Component {
     progress: {
       shrines: {},
       towers: {},
+      koroks: {},
       percentages: {
         shrines: 0,
-        towers: 0
+        towers: 0,
+        koroks: 0,
+      },
+      meta: {
+        shrines: {},
+        towers: {},
+        koroks: {}
       }
     },
     comp: 'shrines'
@@ -32,7 +41,8 @@ class App extends React.Component {
 
   components = {
     'shrines': Shrines,
-    'towers': Towers
+    'towers': Towers,
+    'koroks': Koroks
   }
 
   // componentDidMount() {
@@ -132,6 +142,39 @@ class App extends React.Component {
           percentages: {
             ...progress.percentages,
             towers: parseFloat(completed/data.regions.length).toFixed(2) * 100
+          }
+        }
+      });
+    });
+  }
+
+  koroksUpdater(korokName, updates) {
+    const { progress } = this.state;
+    this.setState({
+      progress: {
+        ...progress,
+        koroks: {
+          ...progress.koroks,
+          [korokName]: {
+            ...progress.koroks[korokName],
+            ...updates,
+          }
+        }
+      }
+    }, () => {
+      const koroks = this.state.progress.koroks;
+      let completed = 0;
+      for (var tower in koroks) {
+        if (koroks.hasOwnProperty(tower)) {
+          if (koroks[tower].completed) completed++;
+        }
+      }
+      this.setState({
+        progress: {
+          ...this.state.progress,
+          percentages: {
+            ...progress.percentages,
+            koroks: parseFloat(completed/data.regions.length).toFixed(2) * 100
           }
         }
       });

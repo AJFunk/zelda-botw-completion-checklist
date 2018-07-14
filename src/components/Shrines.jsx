@@ -20,7 +20,9 @@ const RenderShrines = ({ shrines, progress, updater }) => {
           const isChecked = !!(progress[shrine.name] && progress[shrine.name].completed);
           const shrineDetail = (
             <Popover title={shrine.name} id={`${shrine.name}`}>
-              <span>Placeholder</span>
+              <div>Trial: {shrine.trial}</div>
+              <div>Shrine Quest: {shrine.quest || 'n/a'}</div>
+              <div>Treasure: {shrine.treasure.join(', ')}</div>
             </Popover>
           )
           return (
