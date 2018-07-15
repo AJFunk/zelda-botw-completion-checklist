@@ -102,13 +102,12 @@ class App extends React.Component {
           if (shrines[shrine].completed) completed++;
         }
       }
-      console.log(completed);
       this.setState({
         progress: {
           ...this.state.progress,
           percentages: {
             ...progress.percentages,
-            shrines: parseFloat(completed/data.shrines.length).toFixed(2) * 100
+            shrines: (parseFloat(completed/data.shrines.length) * 100).toFixed(2)
           }
         }
       });
@@ -141,7 +140,7 @@ class App extends React.Component {
           ...this.state.progress,
           percentages: {
             ...progress.percentages,
-            towers: parseFloat(completed/data.regions.length).toFixed(2) * 100
+            towers: (parseFloat(completed/data.regions.length) * 100).toFixed(2)
           }
         }
       });
@@ -174,7 +173,7 @@ class App extends React.Component {
           ...this.state.progress,
           percentages: {
             ...progress.percentages,
-            koroks: parseFloat(completed/data.regions.length).toFixed(2) * 100
+            koroks: (parseFloat(completed/data.regions.length) * 100).toFixed(2)
           }
         }
       });

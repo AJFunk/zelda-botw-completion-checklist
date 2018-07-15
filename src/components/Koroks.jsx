@@ -1,11 +1,12 @@
 import React from 'react';
 import _ from 'lodash';
 import ProgressBar from 'react-bootstrap/lib/ProgressBar';
-import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
-import Popover from 'react-bootstrap/lib/Popover';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
-const RenderShrines = ({ koroks, progress, updater, regions }) => {
+const RenderKoroks = ({ koroks, progress, updater, setActiveKorok }) => {
   const handleInputChange = (event) => {
     const target = event.target;
     const value = target.checked;
@@ -19,19 +20,11 @@ const RenderShrines = ({ koroks, progress, updater, regions }) => {
         {koroks.map((korok, idx) => {
           const name = `${korok.region}-${korok.type}-${idx}`;
           const isChecked = !!(progress[name] && progress[name].completed);
-          const img = regions.find(r => r.name === korok.region).korokImage;
-          const korokDetail = (
-            <Popover title={korok.type} id={`${korok.type}`}>
-              <img src={img} style={{ width: '800px', height: 'auto' }}/>
-            </Popover>
-          )
           return (
             <li key={idx}>
               <input type='checkbox' id={name} name={name} checked={isChecked} onChange={handleInputChange}/>
               <label htmlFor={name}>#{korok.ord} {korok.type}</label>
-              <OverlayTrigger trigger="click" placement="right" overlay={korokDetail}>
-                <Glyphicon glyph="info-sign" />
-              </OverlayTrigger>
+              <Glyphicon glyph="info-sign" onClick={() => setActiveKorok(korok)}/>
             </li>
           )
         })}
@@ -46,24 +39,58 @@ const RenderShrines = ({ koroks, progress, updater, regions }) => {
 // updater,
 // }
 
+const KorokDetail = ({ korok, regions }) => {
+  console.log('here', korok);
+  const img = regions.find(r => r.name === korok.region).korokImage;
+  return (
+    <div>
+      <img src={img} style={{ width: '800px', height: 'auto' }}/>
+    </div>
+  );
+}
+
 class Shrines extends React.Component {
+  constructor() {
+    super();
+    this.setActiveKorok = this.setActiveKorok.bind(this);
+  }
+
+  state = {
+    activeKorok: null
+  }
+
+  setActiveKorok = (korok) => {
+    this.setState({ activeKorok: korok });
+  }
+
   render() {
-    const { handleInputChange } = this;
+    const { setActiveKorok } = this;
+    const { activeKorok } = this.state;
     const { data, progress, updater } = this.props;
     const koroks = _.groupBy(data.koroks, 'region');
+    const regions = data.regions;
     return (
-      <div>
+      <Grid>
         <h3>Korok Seed Progress</h3>
-        <ProgressBar bsStyle="success" now={progress.percentages.koroks} label={`${progress.percentages.koroks}%`} />
-        {Object.keys(koroks).map((region, idx) => {
-          return (
-            <div key={idx}>
-              <h3>{region}</h3>
-              <RenderShrines koroks={koroks[region]} progress={progress.koroks} updater={updater} regions={data.regions} />
-            </div>
-          )
-        })}
-      </div>
+        <Row className="show-grid">
+          <Col md={3}>
+            <ProgressBar bsStyle="success" now={progress.percentages.koroks} label={`${progress.percentages.koroks}%`} />
+            {Object.keys(koroks).map((region, idx) => {
+              return (
+                <div key={idx}>
+                  <h3>{region}</h3>
+                  <RenderKoroks koroks={koroks[region]} progress={progress.koroks} updater={updater} setActiveKorok={setActiveKorok} />
+                </div>
+              )
+            })}
+          </Col>
+          <Col md={9}>
+            {activeKorok ? <KorokDetail korok={activeKorok} regions={regions}/>
+              : <div>select a korok to view detailed information</div>
+            }
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }
